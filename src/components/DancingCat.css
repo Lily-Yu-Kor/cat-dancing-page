@@ -1,0 +1,158 @@
+.dancing-cat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hint-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+.cat-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat-image {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  transition: filter 0.3s ease;
+  border-radius: 10px;
+  outline: none;
+}
+
+.cat-image:hover {
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+}
+
+.cat-image:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 5px;
+}
+
+.control-button {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.control-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation states */
+.cat-wrapper.dancing .cat-image {
+  animation: dance 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.cat-wrapper.paused .cat-image {
+  animation-play-state: paused;
+}
+
+/* Responsive Design - Mobile First */
+
+/* Mobile devices (default) */
+@media (max-width: 480px) {
+  .cat-image {
+    width: 150px;
+  }
+
+  .control-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .dancing-cat-container {
+    gap: 2rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .cat-image {
+    width: 180px;
+  }
+
+  .control-button {
+    padding: 13px 35px;
+    font-size: 1.1rem;
+  }
+
+  .dancing-cat-container {
+    gap: 2.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .cat-image {
+    width: 200px;
+  }
+
+  .control-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+  }
+
+  .dancing-cat-container {
+    gap: 3rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .cat-image {
+    width: 250px;
+  }
+
+  .control-button {
+    padding: 18px 50px;
+    font-size: 1.3rem;
+  }
+
+  .dancing-cat-container {
+    gap: 4rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .control-button {
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    min-height: 50px;
+  }
+
+  .control-button:active {
+    transform: scale(0.95);
+  }
+}
